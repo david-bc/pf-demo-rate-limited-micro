@@ -1,0 +1,87 @@
+$ siege -t5S -c100 http://35.225.71.61/users\?rateLimit\=2147483647/s                                                                                                             ✔  10303  23:35:50
+** SIEGE 4.0.4
+** Preparing 100 concurrent users for battle.
+The server is now under siege...
+Lifting the server siege...
+Transactions:		        1148 hits
+Availability:		      100.00 %
+Elapsed time:		        4.82 secs
+Data transferred:	        0.47 MB
+Response time:		        0.38 secs
+Transaction rate:	      238.17 trans/sec
+Throughput:		        0.10 MB/sec
+Concurrency:		       89.88
+Successful transactions:        1148
+Failed transactions:	           0
+Longest transaction:	        2.81
+Shortest transaction:	        0.15
+
+
+
+
+
+
+
+$ siege -t30S -c100 http://35.225.71.61/users\?rateLimit\=2147483647/s                                                                                                            ✔  10304  23:36:22
+** SIEGE 4.0.4
+** Preparing 100 concurrent users for battle.
+The server is now under siege...
+Lifting the server siege...
+Transactions:		        6416 hits
+Availability:		      100.00 %
+Elapsed time:		       29.13 secs
+Data transferred:	        2.66 MB
+Response time:		        0.45 secs
+Transaction rate:	      220.25 trans/sec
+Throughput:		        0.09 MB/sec
+Concurrency:		       98.27
+Successful transactions:        6416
+Failed transactions:	           0
+Longest transaction:	        3.47
+Shortest transaction:	        0.11
+
+
+
+
+
+
+$ siege -t30S -c100 http://35.225.71.61/users\?rateLimit\=200/s                                                                                                                   ✔  10305  23:37:03
+** SIEGE 4.0.4
+** Preparing 100 concurrent users for battle.
+The server is now under siege...
+Lifting the server siege...
+Transactions:		        7005 hits
+Availability:		      100.00 %
+Elapsed time:		       29.13 secs
+Data transferred:	        2.44 MB
+Response time:		        0.41 secs
+Transaction rate:	      240.47 trans/sec
+Throughput:		        0.08 MB/sec
+Concurrency:		       97.57
+Successful transactions:        5893
+Failed transactions:	           0
+Longest transaction:	        4.79
+Shortest transaction:	        0.11
+
+
+
+
+
+$ siege -t30S -c800 http://35.225.71.61/users\?rateLimit\=300/s                                                                                                                 1 ↵  10307  23:40:12
+** SIEGE 4.0.4
+** Preparing 800 concurrent users for battle.
+The server is now under siege...[error] socket: read error Connection reset by peer sock.c:539: Connection reset by peer
+
+Lifting the server siege...
+Transactions:		        3680 hits
+Availability:		       99.97 %
+Elapsed time:		       29.73 secs
+Data transferred:	        1.50 MB
+Response time:		        2.37 secs
+Transaction rate:	      123.78 trans/sec
+Throughput:		        0.05 MB/sec
+Concurrency:		      293.00
+Successful transactions:        3639
+Failed transactions:	           1
+Longest transaction:	       23.16
+Shortest transaction:	        0.08
