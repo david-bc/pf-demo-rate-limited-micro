@@ -122,13 +122,15 @@ public class RateLimitedHandler {
         long waitUntil = -1;
         long waitMs = -1;
 
+        ServerResponse.BodyBuilder res = ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8);
+
         if (exceeded) {
             waitUntil = resetsAt;
             waitMs = waitUntil - now;
+            res = ServerResponse.status(HttpStatus.TOO_MANY_REQUESTS);
         }
 
-        ServerResponse.BodyBuilder res = ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8)
-                .header("X-RATE-LIMIT-RAW", rawRateLimit)
+        res.header("X-RATE-LIMIT-RAW", rawRateLimit)
                 .header("X-RATE-LIMIT-GROUP", groupId)
                 .header("X-RATE-LIMIT-KEY", rateLimitKey)
                 .header("X-RATE-LIMIT-QUOTA-TOTAL", Integer.toString(quota))
@@ -141,8 +143,7 @@ public class RateLimitedHandler {
         totalCounter.increment();
         if (exceeded) {
             exceededCounter.increment();
-            return ServerResponse.status(HttpStatus.TOO_MANY_REQUESTS)
-                    .header("X-ERROR", "quota exceeded")
+            return res.header("X-ERROR", "quota exceeded")
                     .build();
         }
         return res.body(BodyInserters.fromObject(dataProviderService.get(path)));

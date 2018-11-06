@@ -7,7 +7,7 @@ management:
       exposure:
         include: ["health", "info", "metrics"]
 info:
-  version: 1.0.0
+  version: 1.0.1
   name: Platform Demo Rate Limited Micro
   code: https://github.com/david-bc/pf-demo-rate-limited-micro
   documentation: https://documenter.getpostman.com/view/1339813/RzZ6KLmo
