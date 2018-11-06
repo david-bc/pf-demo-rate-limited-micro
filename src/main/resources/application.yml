@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: pf-demo-rate-limited-micro
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info", "metrics"]
+info:
+  version: 1.0.0
+  name: Platform Demo Rate Limited Micro
+  code: https://github.com/david-bc/pf-demo-rate-limited-micro
+  documentation: https://github.com/david-bc/pf-demo-rate-limited-micro
